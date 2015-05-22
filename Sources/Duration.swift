@@ -18,27 +18,27 @@ public class Duration {
     private let calendar = NSCalendar.currentCalendar()
     
     /**
-    Initialize a date before a duration.
+        Initialize a date before a duration.
     */
     public var ago: NSDate {
-      return before(NSDate())
+        return before(NSDate())
     }
     
     public func before(date: NSDate) -> NSDate {
-      return calendar.dateByAddingDuration(-self, toDate: date, options: .SearchBackwards)!
+        return calendar.dateByAddingDuration(-self, toDate: date, options: .SearchBackwards)!
     }
     
     /**
-    Initialize a date after a duration.
+        Initialize a date after a duration.
     */
     public var later: NSDate {
-      return after(NSDate())
+        return after(NSDate())
     }
     
     public func after(date: NSDate) -> NSDate {
-      return calendar.dateByAddingDuration(self, toDate: date, options: .SearchBackwards)!
+        return calendar.dateByAddingDuration(self, toDate: date, options: .SearchBackwards)!
     }
-  
+    
     public lazy var interval: NSTimeInterval = { [unowned self] in
         return self.unit.interval * NSTimeInterval(self.value)
     }()
